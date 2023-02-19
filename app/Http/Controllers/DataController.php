@@ -15,7 +15,7 @@ class DataController extends Controller
     public function index()
     {
         $data = Data::all();
-        return view ('datas.index') ->with ('data',$data);
+        return view('datas.index')->with('data', $data);
     }
 
     /**
@@ -36,9 +36,9 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request -> all();
+        $input = $request->all();
         Data::create($input);
-        return redirect('datas') -> with('flash_message','Unit Added Successfully!');
+        return redirect('datas')->with('flash_message', 'Unit Added Successfully!');
     }
 
     /**
@@ -61,7 +61,7 @@ class DataController extends Controller
     public function edit($id)
     {
         $data = Data::find($id);
-        return view('datas.edit') -> with ('datas' , $data);
+        return view('datas.edit')->with('datas', $data);
     }
 
     /**
@@ -74,9 +74,9 @@ class DataController extends Controller
     public function update(Request $request, $id)
     {
         $data = Data::find($id);
-        $input = $request -> all();
-        $data -> update ($input);
-        return redirect('datas') -> with ('flash_message','Unit Updated Successfully!');
+        $input = $request->all();
+        $data->update($input);
+        return redirect('datas')->with('flash_message', 'Unit Updated Successfully!');
     }
 
     /**
@@ -88,6 +88,6 @@ class DataController extends Controller
     public function destroy($id)
     {
         Data::destroy($id);
-        return redirect('datas') -> with ('flash_message','Unit Deleted Successfully!');
+        return redirect('datas')->with('flash_message', 'Unit Deleted Successfully!');
     }
 }
